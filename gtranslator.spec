@@ -2,7 +2,7 @@ Summary:	gtranslator is a comfortable po file editor with many bells and whistle
 Summary(pl):	gtranslator jest wygodnym edytorem plików po z ró¿nymi wodotryskami
 Name:		gtranslator
 Version:	0.43
-Release:	2
+Release:	3
 License:	GPL
 Vendor:		GNOME Project
 Group:		Development/Tools
@@ -39,7 +39,7 @@ whistles. It features many useful function which ease the work of
 translators of po files immenantly.
 
 %description -l pl
-gtranslator jest wygodnym edytorem plików po z wielma wodotryskami.
+gtranslator jest wygodnym edytorem plików po z wieloma wodotryskami.
 Dostarcza du¿o u¿ytecznych funkcji u³atwiaj±cych pracê przy
 t³umaczeniach plików po.
 
