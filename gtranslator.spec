@@ -1,5 +1,5 @@
 
-%define		snap		20030103
+%define		snap		20030112
 
 Summary:	gtranslator is a comfortable po file editor with many bells and whistles
 Summary(pl):	gtranslator jest wygodnym edytorem plików po z ró¿nymi wodotryskami
@@ -70,7 +70,6 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{_datadir}/gtranslator/etspecs
 %{_datadir}/gtranslator/etspecs/*etspec
 %attr(755,root,root) %{_datadir}/gtranslator/scripts
-%{_omf_dest_dir}/%{name}
 %{_datadir}/mime-info/gtranslator.*
 %{_pixmapsdir}/*.png
 %{_pixmapsdir}/gtranslator
