@@ -1,27 +1,27 @@
 Summary:	gtranslator - a comfortable po file editor with many bells and whistles
 Summary(pl):	gtranslator - wygodny edytor plików po z ró¿nymi wodotryskami
 Name:		gtranslator
-Version:	1.1.4
-Release:	2
+Version:	1.1.5
+Release:	1
 Epoch:		1
 License:	GPL
 Vendor:		GNOME Project
 Group:		Development/Tools
 Source0:	http://dl.sourceforge.net/gtranslator/%{name}-%{version}.tar.gz
-# Source0-md5:	188a73d5e2cb9dce67b3168acdf0ff27
+# Source0-md5:	2cd24e8471362ab76348fc202a1f957f
 Patch0:		%{name}-configure_in.patch
-Patch1:		%{name}-pl_po.patch
-Patch2:		%{name}-locale_names.patch
+Patch1:		%{name}-locale_names.patch
 URL:		http://gtranslator.sf.net/
 BuildRequires:	autoconf
 BuildRequires:	automake
-BuildRequires:	glib2-devel
 BuildRequires:	gnome-common
-BuildRequires:	gnome-vfs2-devel
+BuildRequires:	gnome-vfs2-devel >= 2.0.0
+BuildRequires:	gtk+2-devel >= 2.0.0
 BuildRequires:	intltool
-BuildRequires:	libbonoboui-devel
-BuildRequires:	libgnomeui-devel
+BuildRequires:	libbonoboui-devel >= 2.0.0
+BuildRequires:	libgnomeui-devel >= 2.0.0
 BuildRequires:	libxml2-devel >= 2.4.12
+BuildRequires:	pkgconfig
 BuildRequires:	scrollkeeper
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -39,7 +39,6 @@ t³umaczeniach plików po.
 %setup -q
 %patch0 -p1
 %patch1 -p1
-%patch2 -p1
 
 mv -f po/{no,nb}.po
 sed -i 's/Categories=.*/Categories=GTK;GNOME;Development;/' data/desktop/gtranslator.desktop.in
