@@ -1,4 +1,4 @@
-# $Revision: 1.7 $
+# $Revision: 1.7.2.1 $
 Summary:	gtranslator is a comfortable po file editor with many bells and whistles
 Summary(pl):	gtranslator jest wygodnym edytorem plików po z ró¿nymi wodotryskami
 Name: 		gtranslator
