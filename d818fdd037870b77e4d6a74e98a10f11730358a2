@@ -1,0 +1,2 @@
+- removed INSTALL from %%doc,
+- correct fix in %%build for install in correct path gtranslator.desktop file.
