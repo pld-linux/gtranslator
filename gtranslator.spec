@@ -1,4 +1,4 @@
-# $Revision: 1.2 $
+# $Revision: 1.3 $
 Summary:	gtranslator is a comfortable po file editor with many bells and whistles
 Summary(pl):	gtranslator jest wygodnym edytorem plików po z ró¿nymi wodotryskami
 Name: 		gtranslator
@@ -24,7 +24,6 @@ BuildRequires:	imlib-devel
 BuildRequires:	intltool
 BuildRequires:	libxml-devel => 1.8.9
 BuildRequires:	scrollkeeper
-Requires(post,postun):	scrollkeeper
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_prefix		/usr/X11R6
@@ -68,11 +67,8 @@ rm -rf $RPM_BUILD_ROOT
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%post
-scrollkeeper-update
-
-%postun
-scrollkeeper-update
+%post   -p /usr/bin/scrollkeeper-update
+%postun -p /usr/bin/scrollkeeper-update
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
