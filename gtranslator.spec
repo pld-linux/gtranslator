@@ -1,18 +1,17 @@
 
-%define		snap		20030112
-
 Summary:	gtranslator is a comfortable po file editor with many bells and whistles
 Summary(pl):	gtranslator jest wygodnym edytorem plików po z ró¿nymi wodotryskami
 Name:		gtranslator
 Version:	0.99
-Release:	%{snap}
+Release:	1
 License:	GPL
 Vendor:		GNOME Project
 Group:		Development/Tools
-Source0:	http://www.gtranslator.org/download/releases/%{version}/%{name}-%{version}-%{snap}.tar.bz2
-# Source0-md5:	bd4147e5efe2395ac60d2fbb2a499ce8
+Source0:	http://www.gtranslator.org/download/releases/%{version}/%{name}-%{version}.tar.gz
+# Source0-md5:	dd003cce8afe77195b21d10f3b821128
 URL:		http://www.gtranslator.org/
 Patch0:		%{name}-configure_in.patch
+Epoch:		1
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	libgnomeui-devel
@@ -77,3 +76,5 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/applications/gtranslator*
 %{_mandir}/man1/gtranslator*
 %{_mandir}/man1/pozilla*
+%{_datadir}/%{name}/dtd
+%{_omf_dest_dir}/%{name}
