@@ -1,4 +1,4 @@
-# $Revision: 1.7 $
+# $Revision: 1.8 $
 Summary:	gtranslator is a comfortable po file editor with many bells and whistles
 Summary(pl):	gtranslator jest wygodnym edytorem plików po z ró¿nymi wodotryskami
 Name: 		gtranslator
@@ -7,13 +7,16 @@ Release: 	2
 License: 	GPL
 Vendor: 	GNOME Project
 Group: 		Development/Tools
-Source:		http://www.gtranslator.org/download/releases/%{version}/%{name}-%{version}.tar.gz
+Source0:	http://www.gtranslator.org/download/releases/%{version}/%{name}-%{version}.tar.gz
 URL: 		http://www.gtranslator.org/
 BuildRequires:	GConf-devel >= 1.0
 BuildRequires:	ORBit-devel >= 0.5.3
+BuildRequires:	autoconf
+BuildRequires:	automake
 BuildRequires:	docbook-dtd31-sgml
 BuildRequires:	docbook-utils
 BuildRequires:	gal-devel >= 0.10.99
+BuildRequires:	gettext-devel
 BuildRequires:  glib-devel >= 1.2.8
 BuildRequires:	gnome-doc-tools
 BuildRequires:	gnome-libs-devel >= 1.2.8
@@ -22,6 +25,7 @@ BuildRequires:	gnome-vfs-devel >= 0.4.1
 BuildRequires:  gtk+-devel >= 1.2.8
 BuildRequires:	imlib-devel
 BuildRequires:	intltool
+BuildRequires:	libtool
 BuildRequires:	libxml-devel => 1.8.9
 BuildRequires:	scrollkeeper
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -48,7 +52,7 @@ rm -f missing
 %{__libtoolize}
 %{__gettextize}
 xml-i18n-toolize --copy --force
-aclocal -I macros
+%{__aclocal} -I macros
 %{__autoconf}
 %{__automake}
 %configure
