@@ -1,37 +1,25 @@
+
+%define		snap		20030103
+
 Summary:	gtranslator is a comfortable po file editor with many bells and whistles
 Summary(pl):	gtranslator jest wygodnym edytorem plików po z ró¿nymi wodotryskami
 Name:		gtranslator
-Version:	0.43
-Release:	3
+Version:	0.99
+Release:	%{snap}
 License:	GPL
 Vendor:		GNOME Project
 Group:		Development/Tools
-Source0:	http://www.gtranslator.org/download/releases/%{version}/%{name}-%{version}.tar.gz
+Source0:	http://www.gtranslator.org/download/releases/%{version}/%{name}-%{version}-%{snap}.tar.bz2
 URL:		http://www.gtranslator.org/
-BuildRequires:	GConf-devel >= 1.0
-BuildRequires:	ORBit-devel >= 0.5.3
+Patch0:		%{name}-configure_in.patch
 BuildRequires:	autoconf
 BuildRequires:	automake
-BuildRequires:	docbook-dtd31-sgml
-BuildRequires:	docbook-utils
-BuildRequires:	gal-devel >= 0.10.99
-BuildRequires:	gettext-devel
-BuildRequires:	glib-devel >= 1.2.8
-BuildRequires:	gnome-doc-tools
-BuildRequires:	gnome-libs-devel >= 1.2.8
-BuildRequires:	gnome-print-devel
-BuildRequires:	gnome-vfs-devel >= 0.4.1
-BuildRequires:	gtk+-devel >= 1.2.8
-BuildRequires:	imlib-devel
+BuildRequires:	libgnomeui-devel
+BuildRequires:	libbonoboui-devel
 BuildRequires:	intltool
-BuildRequires:	libtool
-BuildRequires:	libxml-devel => 1.8.9
-BuildRequires:	scrollkeeper
+BuildRequires:	gnome-vfs2-devel
+BuildRequires:	libxml2-devel >= 2.4.12
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
-
-%define		_prefix		/usr/X11R6
-%define		_mandir		%{_prefix}/man
-%define 	_omf_dest_dir	%(scrollkeeper-config --omfdir)
 
 %description
 gtranslator is a comfortable po file editor with many bells and
@@ -45,15 +33,15 @@ t³umaczeniach plików po.
 
 %prep
 %setup -q
+%patch -p1
 
 %build
-rm -f missing
-%{__libtoolize}
-%{__gettextize}
-xml-i18n-toolize --copy --force
-%{__aclocal} -I macros
-%{__autoconf}
+glib-gettextize --copy --force
+intltoolize
+%{__aclocal} -I /usr/share/aclocal/gnome2-macros
+%{__autoheader}
 %{__automake}
+%{__autoconf}
 %configure
 %{__make}
 %{__make} check
@@ -63,8 +51,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT \
-	Applicationdir=%{_applnkdir}/Development \
-	omf_dest_dir=%{_omf_dest_dir}/%{name}
+	Applicationdir=%{_datadir}/applications
 
 %find_lang %{name} --with-gnome
 
@@ -78,11 +65,6 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog DEPENDS NEWS README THANKS TODO
 %attr(755,root,root) %{_bindir}/*
-%dir %{_libdir}/gtranslator
-%dir %{_libdir}/gtranslator/backends
-%{_libdir}/gtranslator/backends/*.xml
-%attr(755,root,root) %{_libdir}/gtranslator/backends/docbook
-%attr(755,root,root) %{_libdir}/gtranslator/backends/text
 %dir %{_datadir}/gtranslator
 %{_datadir}/gtranslator/colorschemes
 %dir %{_datadir}/gtranslator/etspecs
@@ -92,6 +74,6 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/mime-info/gtranslator.*
 %{_pixmapsdir}/*.png
 %{_pixmapsdir}/gtranslator
-%{_applnkdir}/Development/gtranslator*
+%{_datadir}/applications/gtranslator*
 %{_mandir}/man1/gtranslator*
 %{_mandir}/man1/pozilla*
