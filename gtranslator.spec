@@ -1,23 +1,24 @@
 Summary:	gtranslator - a comfortable po file editor with many bells and whistles
 Summary(pl):	gtranslator - wygodny edytor plików po z ró¿nymi wodotryskami
 Name:		gtranslator
-Version:	0.99
+Version:	1.0
 Release:	1
 Epoch:		1
 License:	GPL
 Vendor:		GNOME Project
 Group:		Development/Tools
 Source0:	http://www.gtranslator.org/download/releases/%{version}/%{name}-%{version}.tar.gz
-# Source0-md5:	dd003cce8afe77195b21d10f3b821128
-URL:		http://www.gtranslator.org/
+# Source0-md5:	548b1e74e42bc5a2840ecd2752541028
 Patch0:		%{name}-configure_in.patch
+URL:		http://www.gtranslator.org/
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	gnome-vfs2-devel
 BuildRequires:	intltool
-BuildRequires:	libgnomeui-devel
 BuildRequires:	libbonoboui-devel
+BuildRequires:	libgnomeui-devel
 BuildRequires:	libxml2-devel >= 2.4.12
+BuildRequires:	scrollkeeper
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -62,18 +63,14 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
-%doc AUTHORS ChangeLog DEPENDS NEWS README THANKS TODO
+%doc AUTHORS ChangeLog DEPENDS HACKING NEWS README THANKS TODO
 %attr(755,root,root) %{_bindir}/*
-%dir %{_datadir}/gtranslator
-%{_datadir}/gtranslator/colorschemes
-%{_datadir}/gtranslator/dtd
-%dir %{_datadir}/gtranslator/etspecs
-%{_datadir}/gtranslator/etspecs/*etspec
-%attr(755,root,root) %{_datadir}/gtranslator/scripts
-%{_datadir}/mime-info/gtranslator.*
-%{_pixmapsdir}/*.png
-%{_pixmapsdir}/gtranslator
-%{_desktopdir}/gtranslator*
-%{_mandir}/man1/gtranslator*
-%{_mandir}/man1/pozilla*
+%dir %{_datadir}/%{name}
+%{_datadir}/%{name}/colorschemes
+%{_datadir}/%{name}/dtd
+%attr(755,root,root) %{_datadir}/%{name}/scripts
+%{_datadir}/mime-info/*
+%{_pixmapsdir}/*
+%{_desktopdir}/*.desktop
+%{_mandir}/man1/*
 %{_omf_dest_dir}/%{name}
