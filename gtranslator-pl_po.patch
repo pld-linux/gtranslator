@@ -1,6 +1,6 @@
 diff -burN gtranslator-1.1.4.orig/po/pl.po gtranslator-1.1.4/po/pl.po
 --- gtranslator-1.1.4.orig/po/pl.po	2004-04-10 22:33:57.671474152 +0200
-+++ gtranslator-1.1.4/po/pl.po	2004-04-10 22:38:11.442895032 +0200
++++ gtranslator-1.1.4/po/pl.po	2004-04-10 23:04:12.516575760 +0200
 @@ -389,7 +389,7 @@
  msgstr "Zmodyfikuj komentarz"
  
@@ -19,16 +19,18 @@ diff -burN gtranslator-1.1.4.orig/po/pl.po gtranslator-1.1.4/po/pl.po
  msgid "%s [ %i Untranslated left ]"
  msgid_plural "%s [ %i Untranslated left ]"
  msgstr[0] "%s [ Pozostało %i nieprzetłumaczonych. ]"
-@@ -524,7 +524,7 @@
+@@ -522,9 +522,8 @@
+ msgstr "Południowoafrykański"
+ 
  #: src/languages.c:41
- #, fuzzy
+-#, fuzzy
  msgid "Albanian"
 -msgstr "Rumuński"
 +msgstr "Albański"
  
  #: src/languages.c:45
  msgid "Arabic"
-@@ -1286,7 +1286,7 @@
+@@ -1286,7 +1285,7 @@
  msgstr "Nie można otworzyć pliku \"%s\" do zapisu!"
  
  #: src/parse.c:1038
