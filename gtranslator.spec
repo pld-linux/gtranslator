@@ -14,7 +14,7 @@ Patch1:		%{name}-locale_names.patch
 URL:		http://gtranslator.sf.net/
 BuildRequires:	autoconf
 BuildRequires:	automake
-BuildRequires:	gnome-common
+BuildRequires:	gnome-common >= 2.8.0
 BuildRequires:	gnome-vfs2-devel >= 2.0.0
 BuildRequires:	gtk+2-devel >= 2.0.0
 BuildRequires:	intltool
@@ -46,7 +46,7 @@ sed -i 's/Categories=.*/Categories=GTK;GNOME;Development;/' data/desktop/gtransl
 %build
 glib-gettextize --copy --force
 intltoolize
-%{__aclocal} -I /usr/share/aclocal/gnome2-macros
+%{__aclocal}
 %{__autoheader}
 %{__automake}
 %{__autoconf}
