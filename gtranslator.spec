@@ -10,6 +10,7 @@ License:	GPL
 Vendor:		GNOME Project
 Group:		Development/Tools
 Source0:	http://www.gtranslator.org/download/releases/%{version}/%{name}-%{version}-%{snap}.tar.bz2
+# Source0-md5:	bd4147e5efe2395ac60d2fbb2a499ce8
 URL:		http://www.gtranslator.org/
 Patch0:		%{name}-configure_in.patch
 BuildRequires:	autoconf
