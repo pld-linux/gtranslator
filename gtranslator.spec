@@ -1,14 +1,14 @@
 Summary:	gtranslator - a comfortable po file editor with many bells and whistles
 Summary(pl):	gtranslator - wygodny edytor plików po z ró¿nymi wodotryskami
 Name:		gtranslator
-Version:	1.0.1
+Version:	1.1.4
 Release:	1
 Epoch:		1
 License:	GPL
 Vendor:		GNOME Project
 Group:		Development/Tools
 Source0:	http://dl.sourceforge.net/gtranslator/%{name}-%{version}.tar.gz
-# Source0-md5:	7ea83b138063fa4d82e11f0dd4a6b341
+# Source0-md5:	188a73d5e2cb9dce67b3168acdf0ff27
 Patch0:		%{name}-configure_in.patch
 URL:		http://gtranslator.sf.net/
 BuildRequires:	autoconf
