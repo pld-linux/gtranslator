@@ -1,9 +1,9 @@
-# $Revision: 1.5 $
+# $Revision: 1.6 $
 Summary:	gtranslator is a comfortable po file editor with many bells and whistles
 Summary(pl):	gtranslator jest wygodnym edytorem plików po z ró¿nymi wodotryskami
 Name: 		gtranslator
 Version: 	0.43
-Release: 	1
+Release: 	2
 License: 	GPL
 Vendor: 	GNOME Project
 Group: 		Development/Tools
@@ -63,6 +63,9 @@ rm -rf $RPM_BUILD_ROOT
 	Developmentdir=%{_applnkdir}/Development \
 	omf_dest_dir=%{_omf_dest_dir}/%{name}
 
+install -d $RPM_BUILD_ROOT%{_applnkdir}/Development
+cp $RPM_BUILD_ROOT/usr/X11R6/share/gnome/apps/Development/gtranslator* $RPM_BUILD_ROOT%{_applnkdir}/Development/
+
 %find_lang %{name} --with-gnome
 
 %clean
@@ -89,7 +92,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/mime-info/gtranslator.*
 %{_pixmapsdir}/*.png
 %{_pixmapsdir}/gtranslator
-%{_datadir}/gnome/help/gtranslator
+#%{_datadir}/gnome/help/gtranslator
 %{_applnkdir}/Development/gtranslator*
 %{_mandir}/man1/gtranslator*
 %{_mandir}/man1/pozilla*
