@@ -10,6 +10,7 @@ Group:		Development/Tools
 Source0:	http://dl.sourceforge.net/gtranslator/%{name}-%{version}.tar.gz
 # Source0-md5:	188a73d5e2cb9dce67b3168acdf0ff27
 Patch0:		%{name}-configure_in.patch
+Patch1:		%{name}-pl_po.patch
 URL:		http://gtranslator.sf.net/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -34,7 +35,8 @@ t³umaczeniach plików po.
 
 %prep
 %setup -q
-%patch -p1
+%patch0 -p1
+%patch1 -p1
 
 %build
 glib-gettextize --copy --force
