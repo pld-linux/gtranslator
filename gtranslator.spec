@@ -1,4 +1,4 @@
-# $Revision: 1.6 $
+# $Revision: 1.7 $
 Summary:	gtranslator is a comfortable po file editor with many bells and whistles
 Summary(pl):	gtranslator jest wygodnym edytorem plików po z ró¿nymi wodotryskami
 Name: 		gtranslator
@@ -60,11 +60,8 @@ rm -rf $RPM_BUILD_ROOT
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT \
-	Developmentdir=%{_applnkdir}/Development \
+	Applicationdir=%{_applnkdir}/Development \
 	omf_dest_dir=%{_omf_dest_dir}/%{name}
-
-install -d $RPM_BUILD_ROOT%{_applnkdir}/Development
-cp $RPM_BUILD_ROOT/usr/X11R6/share/gnome/apps/Development/gtranslator* $RPM_BUILD_ROOT%{_applnkdir}/Development/
 
 %find_lang %{name} --with-gnome
 
@@ -76,7 +73,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
-%doc AUTHORS ChangeLog DEPENDS INSTALL NEWS README THANKS TODO
+%doc AUTHORS ChangeLog DEPENDS NEWS README THANKS TODO
 %attr(755,root,root) %{_bindir}/*
 %dir %{_libdir}/gtranslator
 %dir %{_libdir}/gtranslator/backends
@@ -92,7 +89,6 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/mime-info/gtranslator.*
 %{_pixmapsdir}/*.png
 %{_pixmapsdir}/gtranslator
-#%{_datadir}/gnome/help/gtranslator
 %{_applnkdir}/Development/gtranslator*
 %{_mandir}/man1/gtranslator*
 %{_mandir}/man1/pozilla*
