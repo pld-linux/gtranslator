@@ -13,6 +13,7 @@ Patch0:		%{name}-configure_in.patch
 URL:		http://www.gtranslator.org/
 BuildRequires:	autoconf
 BuildRequires:	automake
+BuildRequires:	gnome-common
 BuildRequires:	gnome-vfs2-devel
 BuildRequires:	intltool
 BuildRequires:	libbonoboui-devel
