@@ -1,9 +1,9 @@
-
-Summary:	gtranslator is a comfortable po file editor with many bells and whistles
-Summary(pl):	gtranslator jest wygodnym edytorem plików po z ró¿nymi wodotryskami
+Summary:	gtranslator - a comfortable po file editor with many bells and whistles
+Summary(pl):	gtranslator - wygodny edytor plików po z ró¿nymi wodotryskami
 Name:		gtranslator
 Version:	0.99
 Release:	1
+Epoch:		1
 License:	GPL
 Vendor:		GNOME Project
 Group:		Development/Tools
@@ -11,7 +11,6 @@ Source0:	http://www.gtranslator.org/download/releases/%{version}/%{name}-%{versi
 # Source0-md5:	dd003cce8afe77195b21d10f3b821128
 URL:		http://www.gtranslator.org/
 Patch0:		%{name}-configure_in.patch
-Epoch:		1
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	libgnomeui-devel
@@ -67,14 +66,14 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/*
 %dir %{_datadir}/gtranslator
 %{_datadir}/gtranslator/colorschemes
+%{_datadir}/gtranslator/dtd
 %dir %{_datadir}/gtranslator/etspecs
 %{_datadir}/gtranslator/etspecs/*etspec
 %attr(755,root,root) %{_datadir}/gtranslator/scripts
 %{_datadir}/mime-info/gtranslator.*
 %{_pixmapsdir}/*.png
 %{_pixmapsdir}/gtranslator
-%{_datadir}/applications/gtranslator*
+%{_desktopdir}/gtranslator*
 %{_mandir}/man1/gtranslator*
 %{_mandir}/man1/pozilla*
-%{_datadir}/%{name}/dtd
 %{_omf_dest_dir}/%{name}
