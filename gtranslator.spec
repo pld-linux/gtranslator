@@ -13,10 +13,10 @@ URL:		http://www.gtranslator.org/
 Patch0:		%{name}-configure_in.patch
 BuildRequires:	autoconf
 BuildRequires:	automake
+BuildRequires:	gnome-vfs2-devel
+BuildRequires:	intltool
 BuildRequires:	libgnomeui-devel
 BuildRequires:	libbonoboui-devel
-BuildRequires:	intltool
-BuildRequires:	gnome-vfs2-devel
 BuildRequires:	libxml2-devel >= 2.4.12
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -50,7 +50,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT \
-	Applicationdir=%{_datadir}/applications
+	Applicationdir=%{_desktopdir}
 
 %find_lang %{name} --with-gnome
 
