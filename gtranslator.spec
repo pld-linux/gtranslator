@@ -1,4 +1,4 @@
-# $Revision: 1.4 $
+# $Revision: 1.5 $
 Summary:	gtranslator is a comfortable po file editor with many bells and whistles
 Summary(pl):	gtranslator jest wygodnym edytorem plików po z ró¿nymi wodotryskami
 Name: 		gtranslator
@@ -63,7 +63,7 @@ rm -rf $RPM_BUILD_ROOT
 	Developmentdir=%{_applnkdir}/Development \
 	omf_dest_dir=%{_omf_dest_dir}/%{name}
 
-%find_lang %{name}
+%find_lang %{name} --with-gnome
 
 %clean
 rm -rf $RPM_BUILD_ROOT
