@@ -14,6 +14,7 @@ Patch1:		%{name}-pl_po.patch
 URL:		http://gtranslator.sf.net/
 BuildRequires:	autoconf
 BuildRequires:	automake
+BuildRequires:	glib2-devel
 BuildRequires:	gnome-common
 BuildRequires:	gnome-vfs2-devel
 BuildRequires:	intltool
