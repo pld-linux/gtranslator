@@ -1,4 +1,4 @@
-# $Revision: 1.3 $
+# $Revision: 1.4 $
 Summary:	gtranslator is a comfortable po file editor with many bells and whistles
 Summary(pl):	gtranslator jest wygodnym edytorem plików po z ró¿nymi wodotryskami
 Name: 		gtranslator
@@ -27,6 +27,7 @@ BuildRequires:	scrollkeeper
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_prefix		/usr/X11R6
+%define		_mandir		%{_prefix}/man
 %define 	_omf_dest_dir	%(scrollkeeper-config --omfdir)
 
 %description
@@ -59,7 +60,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT \
-	Developmentdir=%{__applnkdir}/Development \
+	Developmentdir=%{_applnkdir}/Development \
 	omf_dest_dir=%{_omf_dest_dir}/%{name}
 
 %find_lang %{name}
@@ -89,6 +90,6 @@ rm -rf $RPM_BUILD_ROOT
 %{_pixmapsdir}/*.png
 %{_pixmapsdir}/gtranslator
 %{_datadir}/gnome/help/gtranslator
-%{_datadir}/gnome/apps/Development/gtranslator*
+%{_applnkdir}/Development/gtranslator*
 %{_mandir}/man1/gtranslator*
 %{_mandir}/man1/pozilla*
