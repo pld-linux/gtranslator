@@ -1,14 +1,13 @@
-# $Revision: 1.8 $
 Summary:	gtranslator is a comfortable po file editor with many bells and whistles
 Summary(pl):	gtranslator jest wygodnym edytorem plików po z ró¿nymi wodotryskami
-Name: 		gtranslator
-Version: 	0.43
-Release: 	2
-License: 	GPL
-Vendor: 	GNOME Project
-Group: 		Development/Tools
+Name:		gtranslator
+Version:	0.43
+Release:	2
+License:	GPL
+Vendor:		GNOME Project
+Group:		Development/Tools
 Source0:	http://www.gtranslator.org/download/releases/%{version}/%{name}-%{version}.tar.gz
-URL: 		http://www.gtranslator.org/
+URL:		http://www.gtranslator.org/
 BuildRequires:	GConf-devel >= 1.0
 BuildRequires:	ORBit-devel >= 0.5.3
 BuildRequires:	autoconf
@@ -17,12 +16,12 @@ BuildRequires:	docbook-dtd31-sgml
 BuildRequires:	docbook-utils
 BuildRequires:	gal-devel >= 0.10.99
 BuildRequires:	gettext-devel
-BuildRequires:  glib-devel >= 1.2.8
+BuildRequires:	glib-devel >= 1.2.8
 BuildRequires:	gnome-doc-tools
 BuildRequires:	gnome-libs-devel >= 1.2.8
 BuildRequires:	gnome-print-devel
 BuildRequires:	gnome-vfs-devel >= 0.4.1
-BuildRequires:  gtk+-devel >= 1.2.8
+BuildRequires:	gtk+-devel >= 1.2.8
 BuildRequires:	imlib-devel
 BuildRequires:	intltool
 BuildRequires:	libtool
@@ -40,7 +39,7 @@ whistles. It features many useful function which ease the work of
 translators of po files immenantly.
 
 %description -l pl
-gtranslator jest wygodnym edytorem plików po z wielma wodotryskami. 
+gtranslator jest wygodnym edytorem plików po z wielma wodotryskami.
 Dostarcza du¿o u¿ytecznych funkcji u³atwiaj±cych pracê przy
 t³umaczeniach plików po.
 
