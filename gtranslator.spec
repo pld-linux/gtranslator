@@ -14,9 +14,11 @@ Patch1:		%{name}-locale_names.patch
 URL:		http://gtranslator.sf.net/
 BuildRequires:	autoconf
 BuildRequires:	automake
+BuildRequires:	gettext-devel
 BuildRequires:	gnome-common >= 2.8.0
 BuildRequires:	gnome-vfs2-devel >= 2.0.0
 BuildRequires:	gtk+2-devel >= 1:2.0.0
+BuildRequires:	gtkspell-devel >= 2.0.2
 BuildRequires:	intltool
 BuildRequires:	libbonoboui-devel >= 2.0.0
 BuildRequires:	libgnomeui-devel >= 2.0.0
