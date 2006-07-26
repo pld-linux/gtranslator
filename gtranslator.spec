@@ -5,13 +5,12 @@ Version:	1.1.6
 Release:	2
 Epoch:		1
 License:	GPL
-Vendor:		GNOME Project
 Group:		Development/Tools
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/gtranslator/1.1/%{name}-%{version}.tar.bz2
 # Source0-md5:	e3aab4a220ab4a3a88e08dde9e1c461c
 Patch0:		%{name}-configure_in.patch
 Patch1:		%{name}-locale_names.patch
-URL:		http://gtranslator.sf.net/
+URL:		http://gtranslator.sourceforge.net/
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	gettext-devel
@@ -46,7 +45,7 @@ mv -f po/{no,nb}.po
 sed -i 's/Categories=.*/Categories=GTK;GNOME;Development;Translation;/' data/desktop/gtranslator.desktop.in
 
 %build
-glib-gettextize --copy --force
+%{__glib_gettextize}
 intltoolize
 %{__aclocal}
 %{__autoheader}
