@@ -46,7 +46,7 @@ sed -i 's/Categories=.*/Categories=GTK;GNOME;Development;Translation;/' data/des
 
 %build
 %{__glib_gettextize}
-intltoolize
+%{__intltoolize}
 %{__aclocal}
 %{__autoheader}
 %{__automake}
