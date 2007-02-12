@@ -1,5 +1,5 @@
 Summary:	gtranslator - a comfortable po file editor with many bells and whistles
-Summary(pl):	gtranslator - wygodny edytor plików po z ró¿nymi wodotryskami
+Summary(pl.UTF-8):   gtranslator - wygodny edytor plikÃ³w po z rÃ³Å¼nymi wodotryskami
 Name:		gtranslator
 Version:	1.1.6
 Release:	2
@@ -31,10 +31,10 @@ gtranslator is a comfortable po file editor with many bells and
 whistles. It features many useful function which ease the work of
 translators of po files immenantly.
 
-%description -l pl
-gtranslator jest wygodnym edytorem plików po z wieloma wodotryskami.
-Dostarcza du¿o u¿ytecznych funkcji u³atwiaj±cych pracê przy
-t³umaczeniach plików po.
+%description -l pl.UTF-8
+gtranslator jest wygodnym edytorem plikÃ³w po z wieloma wodotryskami.
+Dostarcza duÅ¼o uÅ¼ytecznych funkcji uÅ‚atwiajÄ…cych pracÄ™ przy
+tÅ‚umaczeniach plikÃ³w po.
 
 %prep
 %setup -q
