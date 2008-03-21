@@ -10,6 +10,7 @@ Source0:	http://ftp.gnome.org/pub/GNOME/sources/gtranslator/1.1/%{name}-%{versio
 # Source0-md5:	47531195b74b22a6284dad609377cbb0
 Patch0:		%{name}-configure_in.patch
 Patch1:		%{name}-locale_names.patch
+Patch2:		%{name}-rarian.patch
 URL:		http://gtranslator.sourceforge.net/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -40,6 +41,7 @@ tłumaczeniach plików po.
 %setup -q
 %patch0 -p1
 %patch1 -p1
+%patch2 -p1
 
 mv -f po/{no,nb}.po
 sed -i 's/Categories=.*/Categories=GTK;GNOME;Development;Translation;/' data/desktop/gtranslator.desktop.in
