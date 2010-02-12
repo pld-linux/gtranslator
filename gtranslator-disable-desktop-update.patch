@@ -1,0 +1,19 @@
+--- gtranslator-1.9.8/data/desktop/Makefile.am~	2010-02-07 20:38:35.000000000 +0100
++++ gtranslator-1.9.8/data/desktop/Makefile.am	2010-02-12 10:27:44.371499317 +0100
+@@ -19,16 +19,4 @@
+ 
+ CLEANFILES = $(Application_DATA)
+ 
+-UPDATE_DESKTOP = \
+-	if [ -f $(Applicationdir)/defaults.list ] ; then \
+-		if which update-desktop-database>/dev/null 2>&1 ; then \
+-			update-desktop-database $(Applicationdir); \
+-		fi \
+-	fi
+-
+-install-data-hook:
+-	$(UPDATE_DESKTOP)
+-
+-uninstall-hook:
+-	$(UPDATE_DESKTOP) 
+ -include $(top_srcdir)/git.mk
