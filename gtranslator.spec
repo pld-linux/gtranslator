@@ -12,11 +12,16 @@ Patch0:		%{name}-disable-desktop-update.patch
 URL:		http://gtranslator.sourceforge.net/
 BuildRequires:	autoconf
 BuildRequires:	automake
+BuildRequires:	db-devel >= 4.3
+BuildRequires:	docbook-dtd412-xml
 BuildRequires:	gdl-devel >= 2.26.0
 BuildRequires:	gettext-devel
 BuildRequires:	gnome-common >= 2.8.0
+BuildRequires:	gnome-doc-utils >= 0.3.2
 BuildRequires:	gnome-vfs2-devel >= 2.0.0
 BuildRequires:	gtk+2-devel >= 1:2.0.0
+BuildRequires:	gtk-doc
+BuildRequires:	gtksourceview2-devel
 BuildRequires:	gtkspell-devel >= 2.0.2
 BuildRequires:	intltool
 BuildRequires:	libbonoboui-devel >= 2.0.0
@@ -24,8 +29,8 @@ BuildRequires:	libgnomeui-devel >= 2.0.0
 BuildRequires:	libxml2-devel >= 2.4.12
 BuildRequires:	pkgconfig
 BuildRequires:	scrollkeeper
-Requires(post,preun):	GConf2
 Requires(post,postun):	hicolor-icon-theme
+Requires(post,preun):	GConf2
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
