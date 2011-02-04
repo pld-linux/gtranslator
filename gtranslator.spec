@@ -2,7 +2,7 @@ Summary:	gtranslator - a comfortable po file editor with many bells and whistles
 Summary(pl.UTF-8):	gtranslator - wygodny edytor plików po z różnymi wodotryskami
 Name:		gtranslator
 Version:	1.9.8
-Release:	1
+Release:	2
 Epoch:		1
 License:	GPL
 Group:		Development/Tools
@@ -29,6 +29,7 @@ BuildRequires:	libgnomeui-devel >= 2.0.0
 BuildRequires:	libxml2-devel >= 2.4.12
 BuildRequires:	pkgconfig
 BuildRequires:	scrollkeeper
+Requires(post,postun):	gtk-update-icon-cache
 Requires(post,postun):	hicolor-icon-theme
 Requires(post,preun):	GConf2
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
