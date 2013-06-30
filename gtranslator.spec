@@ -1,15 +1,14 @@
-# TODO: gtranslator-2.91.6-1.x86_64 zaznaczył gettext-devel-0.18.2.1-2.x86_64 (wł. libgettextpo.so.0()(64bit))
-
 Summary:	gtranslator - a comfortable po file editor with many bells and whistles
 Summary(pl.UTF-8):	gtranslator - wygodny edytor plików po z różnymi wodotryskami
 Name:		gtranslator
 Version:	2.91.6
-Release:	0.1
+Release:	1
 Epoch:		1
 License:	GPL
 Group:		Development/Tools
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/gtranslator/2.91/%{name}-%{version}.tar.xz
 # Source0-md5:	4a86eacdbc4bb0bc09191b8a110f6d39
+Patch0:		%{name}-gtkspell3.patch
 URL:		http://gtranslator.sourceforge.net/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -39,6 +38,7 @@ BuildRequires:	scrollkeeper
 Requires(post,postun):	gtk-update-icon-cache
 Requires(post,postun):	hicolor-icon-theme
 Requires(post,postun):	scrollkeeper
+Provides:	%{name} = %{version}-%{release}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -51,8 +51,22 @@ gtranslator jest wygodnym edytorem plików po z wieloma wodotryskami.
 Dostarcza dużo użytecznych funkcji ułatwiających pracę przy
 tłumaczeniach plików po.
 
+%package devel
+Summary:	A GNOME po file editor with many bells and whistles
+Summary(pl.UTF-8):	Pliki programistyczne edytora gtranslator
+Group:		Development/Tools
+Requires:	%{name} = %{version}-%{release}
+
+%description devel
+Development files for gtranslator libraries.
+
+%description devel -l pl.UTF-8
+Pliki programistyczne dla bibliotek granslatora.
+
+
 %prep
 %setup -q
+%patch -p1
 
 %build
 %{__glib_gettextize}
@@ -61,9 +75,14 @@ tłumaczeniach plików po.
 %{__autoheader}
 %{__automake}
 %{__autoconf}
-%configure
+%configure \
+	--disable-static \
+	--with-dictionary \
+	--with-gda=5.0 \
+	--disable-gtk-doc-html \
+	--with-gtkspell
+
 %{__make}
-%{__make} check
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -71,12 +90,8 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-rm $RPM_BUILD_ROOT%{_libdir}/%{name}/plugins/*.{a,la}
-# we don't need headers
-rm $RPM_BUILD_ROOT%{_includedir}/gtranslator-3.0/gtranslator/*.h
-# we don't need docs too
-rm -fr $RPM_BUILD_ROOT%{_datadir}/gtk-doc/
-
+rm $RPM_BUILD_ROOT%{_libdir}/%{name}/plugins/charmap/*.py[co]
+rm -rf $RPM_BUILD_ROOT%{_datadir}/gtk-doc
 
 %find_lang %{name} --with-gnome --with-omf
 
@@ -102,6 +117,8 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/%{name}/plugins/gtr*.plugin
 %dir %{_libdir}/gtranslator/plugins/charmap
 %{_libdir}/gtranslator/plugins/charmap/*.py
+%dir %{_libdir}/%{name}/girepository-1.0
+%{_libdir}/%{name}/girepository-1.0/Gtranslator-3.0.typelib
 %dir %{_datadir}/%{name}
 %{_datadir}/%{name}/dtd
 %{_datadir}/%{name}/pixmaps
@@ -111,3 +128,14 @@ rm -rf $RPM_BUILD_ROOT
 %{_iconsdir}/hicolor/*/*/*.svg
 %{_desktopdir}/*.desktop
 %{_mandir}/man1/*
+
+%files devel
+%defattr(644,root,root,755)
+%dir %{_includedir}/gtranslator-3.0
+%dir %{_includedir}/gtranslator-3.0/gtranslator
+%{_includedir}/gtranslator-3.0/gtranslator/*.h
+%{_pkgconfigdir}/gtranslator.pc
+%{_libdir}/gtranslator/libgtranslator-private.la
+%{_libdir}/gtranslator/plugins/*.la
+%dir %{_datadir}/%{name}/gir-1.0
+%{_datadir}/%{name}/gir-1.0/*
