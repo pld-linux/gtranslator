@@ -15,7 +15,7 @@ BuildRequires:	automake
 BuildRequires:	db-devel >= 4.3
 BuildRequires:	docbook-dtd412-xml
 BuildRequires:	gdl-devel >= 2.26.0
-BuildRequires:	gettext-devel
+BuildRequires:	gettext-tools
 BuildRequires:	gnome-common >= 2.8.0
 BuildRequires:	gnome-doc-utils >= 0.3.2
 BuildRequires:	gnome-vfs2-devel >= 2.0.0
