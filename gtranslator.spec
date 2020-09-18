@@ -1,13 +1,18 @@
+#
+# Conditional build:
+%bcond_without	apidocs	# API documentation
+
 Summary:	gtranslator - a comfortable po file editor with many bells and whistles
 Summary(pl.UTF-8):	gtranslator - wygodny edytor plików po z różnymi wodotryskami
 Name:		gtranslator
-Version:	3.36.0
+Version:	3.38.0
 Release:	1
 Epoch:		1
 License:	GPL v3+
 Group:		Development/Tools
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/gtranslator/3.36/%{name}-%{version}.tar.xz
-# Source0-md5:	f5916d12eead29992424dec71276f2e3
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/gtranslator/3.38/%{name}-%{version}.tar.xz
+# Source0-md5:	bc8a2bd7c40b9e942c8d69c6b5efe670
+Patch0:		%{name}-doc.patch
 URL:		https://wiki.gnome.org/Apps/Gtranslator
 BuildRequires:	docbook-dtd412-xml
 # libgettextpo
@@ -17,7 +22,7 @@ BuildRequires:	glib2-devel >= 1:2.36.0
 BuildRequires:	gsettings-desktop-schemas-devel
 BuildRequires:	gspell-devel >= 1.2.0
 BuildRequires:	gtk+3-devel >= 3.22.20
-BuildRequires:	gtk-doc >= 1.28
+%{?with_apidocs:BuildRequires:	gtk-doc >= 1.28}
 BuildRequires:	gtksourceview4-devel >= 4.0.2
 BuildRequires:	itstool
 BuildRequires:	json-glib-devel >= 1.2.0
@@ -25,10 +30,12 @@ BuildRequires:	libdazzle-devel >= 3.34
 BuildRequires:	libgda5-devel >= 5.0
 BuildRequires:	libsoup-devel >= 2.4
 BuildRequires:	libxml2-devel >= 2.4.12
-BuildRequires:	meson >= 0.46.0
+BuildRequires:	meson >= 0.50.0
 BuildRequires:	ninja >= 1.5
 BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(macros) >= 1.736
+BuildRequires:	tar >= 1:1.22
+BuildRequires:	xz
 BuildRequires:	yelp-tools
 Requires(post,postun):	gtk-update-icon-cache
 Requires:	glib2 >= 1:2.36.0
@@ -76,10 +83,11 @@ Dokumentacja API gtranslatora.
 
 %prep
 %setup -q
+%patch0 -p1
 
 %build
 %meson build \
-	-Dgtk_doc=true
+	%{?with_apidocs:-Dgtk_doc=true}
 
 %ninja_build -C build
 
@@ -117,6 +125,8 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %{_includedir}/gtr-marshal.h
 
+%if %{with apidocs}
 %files apidocs
 %defattr(644,root,root,755)
 %{_gtkdocdir}/gtranslator
+%endif

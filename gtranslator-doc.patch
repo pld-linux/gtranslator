@@ -1,0 +1,20 @@
+--- gtranslator-3.38.0/doc/reference/gtranslator.types.orig	2020-09-18 09:20:52.751001600 +0200
++++ gtranslator-3.38.0/doc/reference/gtranslator.types	2020-09-18 21:00:51.848455472 +0200
+@@ -10,7 +10,6 @@
+ #include "gtr-notebook.h"
+ #include "gtr-po.h"
+ #include "gtr-profile.h"
+-#include "gtr-statusbar.h"
+ #include "gtr-tab.h"
+ #include "gtr-utils.h"
+ #include "gtr-view.h"
+--- gtranslator-3.38.0/doc/reference/gtranslator-docs.sgml.orig	2020-09-18 09:20:52.751001600 +0200
++++ gtranslator-3.38.0/doc/reference/gtranslator-docs.sgml	2020-09-18 21:10:01.215479296 +0200
+@@ -50,7 +50,6 @@
+     <xi:include href="xml/gtr-notebook.xml"/>
+     <xi:include href="xml/gtr-po.xml"/>
+     <xi:include href="xml/gtr-profile.xml"/>
+-    <xi:include href="xml/gtr-statusbar.xml"/>
+     <xi:include href="xml/gtr-tab.xml"/>
+     <xi:include href="xml/gtr-utils.xml"/>
+     <xi:include href="xml/gtr-view.xml"/>
