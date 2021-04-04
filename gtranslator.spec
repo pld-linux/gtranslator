@@ -5,14 +5,13 @@
 Summary:	gtranslator - a comfortable po file editor with many bells and whistles
 Summary(pl.UTF-8):	gtranslator - wygodny edytor plików po z różnymi wodotryskami
 Name:		gtranslator
-Version:	3.38.0
+Version:	40.0
 Release:	1
 Epoch:		1
 License:	GPL v3+
 Group:		Development/Tools
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/gtranslator/3.38/%{name}-%{version}.tar.xz
-# Source0-md5:	bc8a2bd7c40b9e942c8d69c6b5efe670
-Patch0:		%{name}-doc.patch
+Source0:	https://download.gnome.org/sources/gtranslator/40/%{name}-%{version}.tar.xz
+# Source0-md5:	df5dd3cdf0378459c4414ac79d1e9bc8
 URL:		https://wiki.gnome.org/Apps/Gtranslator
 BuildRequires:	docbook-dtd412-xml
 # libgettextpo
@@ -28,11 +27,13 @@ BuildRequires:	itstool
 BuildRequires:	json-glib-devel >= 1.2.0
 BuildRequires:	libdazzle-devel >= 3.34
 BuildRequires:	libgda5-devel >= 5.0
+BuildRequires:	libhandy1-devel >= 1.0.0
 BuildRequires:	libsoup-devel >= 2.4
 BuildRequires:	libxml2-devel >= 2.4.12
 BuildRequires:	meson >= 0.50.0
 BuildRequires:	ninja >= 1.5
 BuildRequires:	pkgconfig
+BuildRequires:	rpm-build >= 4.6
 BuildRequires:	rpmbuild(macros) >= 1.736
 BuildRequires:	tar >= 1:1.22
 BuildRequires:	xz
@@ -45,6 +46,7 @@ Requires:	gtksourceview4 >= 4.0.2
 Requires:	hicolor-icon-theme
 Requires:	json-glib >= 1.2.0
 Requires:	libdazzle >= 3.34
+Requires:	libhandy1 >= 1.0.0
 Requires:	libxml2 >= 2.4.12
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -63,6 +65,7 @@ Summary:	Header file for gtranslator plugins development
 Summary(pl.UTF-8):	Plik nagłówkowy do tworzenia wtyczek edytora gtranslator
 Group:		Development/Tools
 Requires:	glib2-devel >= 1:2.36.0
+BuildArch:	noarch
 
 %description devel
 Header file for gtranslator plugins development.
@@ -74,6 +77,7 @@ Plik nagłówkowy do tworzenia wtyczek edytora gtranslator.
 Summary:	API documentation for gtranslator
 Summary(pl.UTF-8):	Dokumentacja API gtranslatora
 Group:		Documentation
+BuildArch:	noarch
 
 %description apidocs
 API documentation for gtranslator.
@@ -83,7 +87,6 @@ Dokumentacja API gtranslatora.
 
 %prep
 %setup -q
-%patch0 -p1
 
 %build
 %meson build \
@@ -118,7 +121,6 @@ rm -rf $RPM_BUILD_ROOT
 %{_desktopdir}/org.gnome.Gtranslator.desktop
 %{_iconsdir}/hicolor/scalable/apps/org.gnome.Gtranslator.svg
 %{_iconsdir}/hicolor/symbolic/apps/org.gnome.Gtranslator-symbolic.svg
-%{_pixmapsdir}/gtranslator-*.png
 %{_mandir}/man1/gtranslator.1*
 
 %files devel
