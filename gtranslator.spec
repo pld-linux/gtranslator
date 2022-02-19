@@ -5,13 +5,13 @@
 Summary:	gtranslator - a comfortable po file editor with many bells and whistles
 Summary(pl.UTF-8):	gtranslator - wygodny edytor plików po z różnymi wodotryskami
 Name:		gtranslator
-Version:	40.0
-Release:	2
+Version:	41.0
+Release:	1
 Epoch:		1
 License:	GPL v3+
 Group:		Development/Tools
-Source0:	https://download.gnome.org/sources/gtranslator/40/%{name}-%{version}.tar.xz
-# Source0-md5:	df5dd3cdf0378459c4414ac79d1e9bc8
+Source0:	https://download.gnome.org/sources/gtranslator/41/%{name}-%{version}.tar.xz
+# Source0-md5:	bbefe0c418e1f12192f76f26624306a2
 URL:		https://wiki.gnome.org/Apps/Gtranslator
 BuildRequires:	docbook-dtd412-xml
 # libgettextpo
@@ -26,7 +26,7 @@ BuildRequires:	gtksourceview4-devel >= 4.0.2
 BuildRequires:	itstool
 BuildRequires:	json-glib-devel >= 1.2.0
 BuildRequires:	libdazzle-devel >= 3.34
-BuildRequires:	libgda5-devel >= 5.0
+BuildRequires:	libgda6-devel >= 6.0
 BuildRequires:	libhandy1-devel >= 1.0.0
 BuildRequires:	libsoup-devel >= 2.4
 BuildRequires:	libxml2-devel >= 2.4.12
