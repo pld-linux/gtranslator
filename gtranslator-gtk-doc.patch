@@ -1,0 +1,24 @@
+--- gtranslator-45.3/doc/reference/gtranslator.types.orig	2023-10-25 08:51:08.000000000 +0200
++++ gtranslator-45.3/doc/reference/gtranslator.types	2023-12-02 17:38:42.365672989 +0100
+@@ -6,7 +6,6 @@
+ #include "gtr-io-error-info-bar.h"
+ #include "gtr-message-table.h"
+ #include "gtr-msg.h"
+-#include "gtr-notebook.h"
+ #include "gtr-po.h"
+ #include "gtr-profile.h"
+ #include "gtr-tab.h"
+--- gtranslator-45.3/doc/reference/gtranslator-docs.sgml.orig	2023-10-25 08:51:08.000000000 +0200
++++ gtranslator-45.3/doc/reference/gtranslator-docs.sgml	2023-12-02 17:54:46.983780538 +0100
+@@ -43,11 +43,9 @@
+     <xi:include href="xml/gtr-context.xml"/>
+     <xi:include href="xml/gtr-debug.xml"/>
+     <xi:include href="xml/gtr-header.xml"/>
+-    <xi:include href="xml/gtr-history-entry.xml"/>
+     <xi:include href="xml/gtr-io-error-info-bar.xml"/>
+     <xi:include href="xml/gtr-message-table.xml"/>
+     <xi:include href="xml/gtr-msg.xml"/>
+-    <xi:include href="xml/gtr-notebook.xml"/>
+     <xi:include href="xml/gtr-po.xml"/>
+     <xi:include href="xml/gtr-profile.xml"/>
+     <xi:include href="xml/gtr-tab.xml"/>

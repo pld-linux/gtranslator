@@ -5,13 +5,15 @@
 Summary:	gtranslator - a comfortable po file editor with many bells and whistles
 Summary(pl.UTF-8):	gtranslator - wygodny edytor plików po z różnymi wodotryskami
 Name:		gtranslator
-Version:	42.0
+Version:	45.3
 Release:	1
 Epoch:		1
 License:	GPL v3+
 Group:		Development/Tools
-Source0:	https://download.gnome.org/sources/gtranslator/42/%{name}-%{version}.tar.xz
-# Source0-md5:	85ec06b9aae5edbd4bbc2b3d90133602
+Source0:	https://download.gnome.org/sources/gtranslator/45/%{name}-%{version}.tar.xz
+# Source0-md5:	6c524ac174a634bda5304e8a886220d1
+Patch0:		%{name}-libxml2.patch
+Patch1:		%{name}-gtk-doc.patch
 URL:		https://wiki.gnome.org/Apps/Gtranslator
 BuildRequires:	docbook-dtd412-xml
 # libgettextpo
@@ -20,17 +22,17 @@ BuildRequires:	gettext-tools
 BuildRequires:	glib2-devel >= 1:2.71.3
 BuildRequires:	gsettings-desktop-schemas-devel
 BuildRequires:	gspell-devel >= 1.2.0
-BuildRequires:	gtk+3-devel >= 3.22.20
+BuildRequires:	gtk4-devel >= 4.6.0
 %{?with_apidocs:BuildRequires:	gtk-doc >= 1.28}
-BuildRequires:	gtksourceview4-devel >= 4.0.2
+BuildRequires:	gtksourceview5-devel >= 5.4.0
 BuildRequires:	itstool
 BuildRequires:	json-glib-devel >= 1.2.0
-BuildRequires:	libdazzle-devel >= 3.34
+BuildRequires:	libadwaita-devel >= 1.1.0
 BuildRequires:	libgda6-devel >= 6.0
-BuildRequires:	libhandy1-devel >= 1.5.0
-BuildRequires:	libsoup-devel >= 2.4
+BuildRequires:	libsoup3-devel >= 3.0
+BuildRequires:	libspelling-devel
 BuildRequires:	libxml2-devel >= 2.4.12
-BuildRequires:	meson >= 0.50.0
+BuildRequires:	meson >= 0.57.0
 BuildRequires:	ninja >= 1.5
 BuildRequires:	pkgconfig
 BuildRequires:	rpm-build >= 4.6
@@ -41,12 +43,11 @@ BuildRequires:	yelp-tools
 Requires(post,postun):	gtk-update-icon-cache
 Requires:	glib2 >= 1:2.71.3
 Requires:	gspell >= 1.2.0
-Requires:	gtk+3 >= 3.22.20
-Requires:	gtksourceview4 >= 4.0.2
+Requires:	gtk4 >= 4.6.0
+Requires:	gtksourceview5 >= 5.4.0
 Requires:	hicolor-icon-theme
 Requires:	json-glib >= 1.2.0
-Requires:	libdazzle >= 3.34
-Requires:	libhandy1 >= 1.5.0
+Requires:	libadwaita >= 1.1.0
 Requires:	libxml2 >= 2.4.12
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -87,6 +88,8 @@ Dokumentacja API gtranslatora.
 
 %prep
 %setup -q
+%patch0 -p1
+%patch1 -p1
 
 %build
 %meson build \
@@ -117,7 +120,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/%{name}
 %{_datadir}/glib-2.0/schemas/org.gnome.Gtranslator.gschema.xml
 %{_datadir}/glib-2.0/schemas/org.gnome.gtranslator.plugins.translation-memory.gschema.xml
-%{_datadir}/gtksourceview-4/language-specs/gtranslator.lang
+%{_datadir}/gtksourceview-5/language-specs/gtranslator.lang
 %{_datadir}/metainfo/org.gnome.Gtranslator.appdata.xml
 %{_desktopdir}/org.gnome.Gtranslator.desktop
 %{_iconsdir}/hicolor/scalable/apps/org.gnome.Gtranslator.svg

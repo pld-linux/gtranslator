@@ -1,0 +1,10 @@
+--- gtranslator-45.3/src/gtr-profile-manager.c.orig	2023-10-25 08:51:08.000000000 +0200
++++ gtranslator-45.3/src/gtr-profile-manager.c	2023-12-02 12:34:19.964608907 +0100
+@@ -24,6 +24,7 @@
+ #include "gtr-profile.h"
+ 
+ #include <libxml/xmlreader.h>
++#include <libxml/xmlsave.h>
+ #include <libxml/tree.h>
+ 
+ typedef struct
