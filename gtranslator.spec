@@ -6,7 +6,7 @@ Summary:	gtranslator - a comfortable po file editor with many bells and whistles
 Summary(pl.UTF-8):	gtranslator - wygodny edytor plików po z różnymi wodotryskami
 Name:		gtranslator
 Version:	45.3
-Release:	1
+Release:	2
 Epoch:		1
 License:	GPL v3+
 Group:		Development/Tools
@@ -101,6 +101,9 @@ Dokumentacja API gtranslatora.
 rm -rf $RPM_BUILD_ROOT
 
 %ninja_install -C build
+
+# not supported by glibc (as of 2.38)
+%{__rm} -r $RPM_BUILD_ROOT%{_localedir}/ie
 
 %find_lang %{name} --with-gnome
 
