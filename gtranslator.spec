@@ -5,15 +5,14 @@
 Summary:	gtranslator - a comfortable po file editor with many bells and whistles
 Summary(pl.UTF-8):	gtranslator - wygodny edytor plików po z różnymi wodotryskami
 Name:		gtranslator
-Version:	45.3
-Release:	2
+Version:	46.1
+Release:	1
 Epoch:		1
 License:	GPL v3+
 Group:		Development/Tools
-Source0:	https://download.gnome.org/sources/gtranslator/45/%{name}-%{version}.tar.xz
-# Source0-md5:	6c524ac174a634bda5304e8a886220d1
-Patch0:		%{name}-libxml2.patch
-Patch1:		%{name}-gtk-doc.patch
+Source0:	https://download.gnome.org/sources/gtranslator/46/%{name}-%{version}.tar.xz
+# Source0-md5:	87a2f179182e9ae95f43c10863876935
+Patch0:		%{name}-gtk-doc.patch
 URL:		https://wiki.gnome.org/Apps/Gtranslator
 BuildRequires:	docbook-dtd412-xml
 # libgettextpo
@@ -22,17 +21,17 @@ BuildRequires:	gettext-tools
 BuildRequires:	glib2-devel >= 1:2.71.3
 BuildRequires:	gsettings-desktop-schemas-devel
 BuildRequires:	gspell-devel >= 1.2.0
-BuildRequires:	gtk4-devel >= 4.6.0
+BuildRequires:	gtk4-devel >= 4.12.0
 %{?with_apidocs:BuildRequires:	gtk-doc >= 1.28}
 BuildRequires:	gtksourceview5-devel >= 5.4.0
 BuildRequires:	itstool
 BuildRequires:	json-glib-devel >= 1.2.0
-BuildRequires:	libadwaita-devel >= 1.1.0
+BuildRequires:	libadwaita-devel >= 1.5
 BuildRequires:	libgda6-devel >= 6.0
 BuildRequires:	libsoup3-devel >= 3.0
 BuildRequires:	libspelling-devel
 BuildRequires:	libxml2-devel >= 2.4.12
-BuildRequires:	meson >= 0.57.0
+BuildRequires:	meson >= 0.59.0
 BuildRequires:	ninja >= 1.5
 BuildRequires:	pkgconfig
 BuildRequires:	rpm-build >= 4.6
@@ -43,11 +42,11 @@ BuildRequires:	yelp-tools
 Requires(post,postun):	gtk-update-icon-cache
 Requires:	glib2 >= 1:2.71.3
 Requires:	gspell >= 1.2.0
-Requires:	gtk4 >= 4.6.0
+Requires:	gtk4 >= 4.12.0
 Requires:	gtksourceview5 >= 5.4.0
 Requires:	hicolor-icon-theme
 Requires:	json-glib >= 1.2.0
-Requires:	libadwaita >= 1.1.0
+Requires:	libadwaita >= 1.5
 Requires:	libxml2 >= 2.4.12
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -89,7 +88,6 @@ Dokumentacja API gtranslatora.
 %prep
 %setup -q
 %patch0 -p1
-%patch1 -p1
 
 %build
 %meson build \
