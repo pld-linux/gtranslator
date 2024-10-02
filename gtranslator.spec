@@ -6,7 +6,7 @@ Summary:	gtranslator - a comfortable po file editor with many bells and whistles
 Summary(pl.UTF-8):	gtranslator - wygodny edytor plików po z różnymi wodotryskami
 Name:		gtranslator
 Version:	46.1
-Release:	1
+Release:	2
 Epoch:		1
 License:	GPL v3+
 Group:		Development/Tools
@@ -20,7 +20,6 @@ BuildRequires:	gettext-devel
 BuildRequires:	gettext-tools
 BuildRequires:	glib2-devel >= 1:2.71.3
 BuildRequires:	gsettings-desktop-schemas-devel
-BuildRequires:	gspell-devel >= 1.2.0
 BuildRequires:	gtk4-devel >= 4.12.0
 %{?with_apidocs:BuildRequires:	gtk-doc >= 1.28}
 BuildRequires:	gtksourceview5-devel >= 5.4.0
@@ -41,7 +40,6 @@ BuildRequires:	xz
 BuildRequires:	yelp-tools
 Requires(post,postun):	gtk-update-icon-cache
 Requires:	glib2 >= 1:2.71.3
-Requires:	gspell >= 1.2.0
 Requires:	gtk4 >= 4.12.0
 Requires:	gtksourceview5 >= 5.4.0
 Requires:	hicolor-icon-theme
