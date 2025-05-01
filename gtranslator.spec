@@ -1,13 +1,13 @@
 Summary:	gtranslator - a comfortable po file editor with many bells and whistles
 Summary(pl.UTF-8):	gtranslator - wygodny edytor plików po z różnymi wodotryskami
 Name:		gtranslator
-Version:	47.1
+Version:	48.0
 Release:	1
 Epoch:		1
 License:	GPL v3+
 Group:		Development/Tools
-Source0:	https://download.gnome.org/sources/gtranslator/47/%{name}-%{version}.tar.xz
-# Source0-md5:	d18cd4a512125ad4e01fffb4293d0999
+Source0:	https://download.gnome.org/sources/gtranslator/48/%{name}-%{version}.tar.xz
+# Source0-md5:	0cd62e0d37e7802bd5f590f58b612b61
 URL:		https://wiki.gnome.org/Apps/Gtranslator
 # libgettextpo
 BuildRequires:	gettext-devel
@@ -26,7 +26,7 @@ BuildRequires:	libxml2-devel >= 2.4.12
 BuildRequires:	meson >= 0.59.0
 BuildRequires:	ninja >= 1.5
 BuildRequires:	pkgconfig
-BuildRequires:	rpmbuild(macros) >= 1.736
+BuildRequires:	rpmbuild(macros) >= 2.042
 BuildRequires:	tar >= 1:1.22
 BuildRequires:	xz
 BuildRequires:	yelp-tools
@@ -56,14 +56,14 @@ tłumaczeniach plików po.
 %setup -q
 
 %build
-%meson build
+%meson
 
-%ninja_build -C build
+%meson_build
 
 %install
 rm -rf $RPM_BUILD_ROOT
 
-%ninja_install -C build
+%meson_install
 
 # not supported by glibc (as of 2.38)
 %{__rm} -r $RPM_BUILD_ROOT%{_localedir}/ie
